@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link href="style.css" rel="stylesheet" type="text/css">
+<script src="script.js"></script>
+</head>
+<center>
+<body style="background-color:lightgreen;">
+<div id="mainform">
+	<div class="innerdiv">
+	<h2>FORM VALIDATION - AJAX Implementation</h2>
+	<form action='#' id="myForm" method='post' name="myForm">
+		<table>
+		<tr>
+		<td>Username</td>
+		<td><input id='username1' name='username' onblur="validate('username', this.value)" type='text'></td>
+		<td>
+		<div id='username'></div>
+		</td>
+		</tr>
+		<tr>
+		<td>Password</td>
+		<td><input id='password1' name='password' onblur="validate('password', this.value)" type='password'></td>
+		<td>
+		<div id='password'></div>
+		<br><button>Submit</button>
+		</td>
+		</tr>
+		</table>
+	</form>
+	</div>
+</div>
+</body>
+</center>
+</html>
+

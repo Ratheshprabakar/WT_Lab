@@ -1,0 +1,13 @@
+<web-app>
+
+<servlet>
+<servlet-name>servlet1</servlet-name>
+<servlet-class>DB</servlet-class>
+</servlet>
+
+<servlet-mapping>
+<servlet-name>servlet1</servlet-name>
+<url-pattern>/db</url-pattern>
+</servlet-mapping>
+
+</web-app>

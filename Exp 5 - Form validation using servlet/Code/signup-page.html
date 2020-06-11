@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="css/signup-styles.css">
+        <link rel="icon" href="favicon.ico">
+        <title>Sign Up</title>
+        <script type="text/javascript">
+            function validateUsername() {
+                var uname = document.getElementById("uname").value;
+                var regex = /^[a-zA-Z]{8}/;
+            
+                if(uname.length <2) {
+                    //alert("Username too short");
+                    document.getElementById("uname").value = "";
+                    document.getElementById("uname").focus();
+                }
+                else if(regex.test(uname)) {
+                    return true;
+                }
+                else {
+                	alert("Username should have atleast 8 characters");
+                	document.getElementById("uname").value = "";
+                	document.getElementById("uname").focus();
+                }
+            }
+
+            function validataEmail() {
+            	var email = document.getElementById("email").value;
+                var regex = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
+	                if(regex.test(email)) {
+	                	return true;
+	                }
+	                else {
+	                	alert("Invalid Mail ID");
+	                	document.getElementById("email").value = "";
+	                	document.getElementById("email").focus();	
+	                }
+
+            }
+
+            function validateGender() {
+				var i = document.getElementById("gender").selectedIndex;
+				var g = document.getElementById("gender").options;
+				  
+				var s = g[i].text;
+				if(s == "---" ){
+					alert("Invalid");
+					return false;
+				}
+				else {
+				   	return true;
+				}                
+            }
+
+            function validateDOB() {
+            	var dob = document.getElementById("dob").value;
+                var regex = /^([0-2][0-9]|(3)[0-1])(\/)(((0)[0-9])|((1)[0-2]))(\/)\d{4}$/;
+                if(regex.test(dob)) {
+                	return true;
+                }
+                else {
+                	alert("Invalid Date");
+                	document.getElementById("dob").value = "";
+                	document.getElementById("dob").focus();
+                }
+
+            }
+
+            function validatePassword() {
+            	var pass = document.getElementById("pass").value;
+                var regex = /^(?=.*[a-z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+                if(regex.test(pass)) {
+                	return true;
+                }
+                else {
+                	alert("Password should contain atleast one digit, one alphabet, one special character and have more than 8 characters");
+                	document.getElementById("pass").value = "";
+                	document.getElementById("pass").focus();
+                }
+            }
+
+            function recheckPassword() {
+            	var repass = document.getElementById("repass").value;
+            	var pass = document.getElementById("pass").value;
+            	if(repass == pass) {
+            		return true;
+            	}
+            	else {
+            		alert("Password missmatch");
+            		document.getElementById("repass").value = "";
+            		document.getElementById("repass").focus();
+            	}
+            }
+
+            function cancel() {
+            	document.getElementById("uname").value = "";
+            	document.getElementById("email").value = "";
+            	document.getElementById("dob").value = "";
+            	document.getElementById("pass").value = "";
+            	document.getElementById("repass").value = "";
+            }
+
+            function checkUsername() {
+            	if(document.getElementById("uname").value == "") document.getElementById("uname").focus();
+            }
+
+            function checkEmail() {
+            	if(document.getElementById("email").value == "") document.getElementById("email").focus();
+            }
+
+			function checkGender() {
+            	var s = document.getElementById("gender").value;
+				
+            	if(s == "---") document.getElementById("gender").focus();
+            }
+
+            function checkDOB() {
+            	if(document.getElementById("dob").value=="") document.getElementById("dob").focus();
+            }
+
+            function checkPassword() {
+            	if(document.getElementById("pass").value == "") document.getElementById("pass").focus();
+            }
+
+
+        </script>
+    </head>
+    <head>
+    <body>
+        <div class="top-container">
+            <h1>Books on the Go!</h1>
+        </div>
+        <div class="middle-container">
+            <h3>Sign up</h3>
+            <form action="welcome" method="post">
+            <div class="signup-box">
+                <div class="fields">
+                    <p>Username</p>
+                    <p>Email ID</p>
+                    <p>Gender</p>
+                    <p>Date Of Birth</p>
+                    <p>Password</p>
+                    <p>Confirm password</p>
+                    <input id="submit" type="submit" >
+
+                </div>
+                <div class="text-boxes">
+                	
+	                    <input  type="text" name="uname" placeholder="Your name"  >
+	                    <input name="email" type="text" placeholder="Your Email ID" >
+	                    <select onclick="validateGender()" name="gender">
+	                    	<option value="---" >---</option>
+	                        <option value="male">Male</option>
+	                        <option value="female">Female</option>
+	                        <option value="others">Other</option>
+	                    </select>
+	                    <input name="dob" type="text" placeholder="DOB in dd/mm/yyyy" >
+	                    <input name="pass" type="text" placeholder="Your Password"  >
+	                    <input name="repass" type="text" placeholder="Retype password" >
+	                    <button id="cancel" onclick="cancel()">Cancel</button>
+	                
+                </div>
+            </div>
+            </form>
+        </div>
+    </body>
+</html>
